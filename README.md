@@ -1,91 +1,60 @@
 # Secure Backup and Disaster Recovery Platform
 
 **Author**: Sonny  
-**Project Type**: Portfolio Project for Titre Professionnel d'Administrateur d’Infrastructures Sécurisées (AIS) – RNCP Level 6  
+**Project**: Portfolio for Titre Professionnel d'Administrateur d’Infrastructures Sécurisées (AIS) – RNCP Level 6  
 **Date**: May 2026  
-**Environment**: Linux Mint XFCE (4GB RAM workstation)
+**Environment**: Linux Mint XFCE (4GB RAM)
 
 ---
 
 ## Executive Summary
 
-This project implements a complete, secure, local backup and disaster recovery solution using the open-source tool Restic. 
+This project implements a complete, secure, local backup and disaster recovery solution using Restic. 
 
-Developed during my professional reconversion, it demonstrates real-world competencies required for the role of **Administrateur d’Infrastructures Sécurisées**: secure data management, strong encryption, risk analysis, business continuity planning, disaster recovery procedures, and high-quality technical documentation.
+Developed during my professional reconversion, it demonstrates real competencies required for the role of **Administrateur d’Infrastructures Sécurisées**: secure data management, encryption, risk analysis, business continuity planning, and professional documentation.
 
-The solution is 100% local, ethical, manual, and optimized for low-resource machines while following modern industry best practices.
-
----
-
-## Project Objectives
-
-- Design and implement a reliable and secure backup system
-- Apply strong client-side encryption (AES-256)
-- Create clear, professional and auditable documentation
-- Perform risk analysis and define mitigation measures
-- Document disaster recovery (restore) procedures
-- Demonstrate practical understanding of the CIA triad (Confidentiality, Integrity, Availability)
-- Build a standout portfolio project for alternance applications in Paris
-
----
-
-## Key Concepts
-
-- **Backup**: Creation of copies of critical data to ensure recoverability.
-- **Disaster Recovery (DR)**: Policies, tools and procedures to restore systems and data after an incident.
-- **Restic**: Modern, secure backup tool with built-in AES-256 encryption, deduplication, compression and snapshots.
-- **AES-256**: Industry-standard strong encryption algorithm (256-bit keys).
-- **3-2-1 Backup Rule**: 3 copies of data, on 2 different media types, with 1 copy off-site.
-- **Snapshot**: Point-in-time version of the data for safe restoration.
+The solution is 100% local, ethical, manual, and optimized for low-resource machines.
 
 ---
 
 ## Architecture
 
-```mermaid
-flowchart TD
-    subgraph Workstation ["💻 Linux Workstation"]
-        A[Linux Mint XFCE<br/>4GB RAM]
-    end
+Linux Workstation
+(Linux Mint XFCE - 4GB RAM)
+│
+│
+Critical Data Folders
+(Documents / Projects / .ssh / .config...)
+│
+▼
+Restic Backup Engine
+│
+│
+AES-256 Encryption
+(Client-side)
+│
+▼
+Local Encrypted Repository
+~/SecureBackups/restic-repo
 
-    subgraph Data ["📁 Critical Data"]
-        B[Documents<br/>Projects<br/>.ssh<br/>.gnupg<br/>.config]
-    end
-
-    subgraph Backup ["🔐 Secure Backup Solution"]
-        C[Restic Backup Engine]
-        D[AES-256 Encryption<br/>Client-side]
-        E[Local Encrypted Repository<br/>~/SecureBackups/restic-repo]
-    end
-
-    A --> B
-    B --> C
-    C --> D
-    D --> E
-
-    style A fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
-    style B fill:#fff3e0,stroke:#ef6c00
-    style E fill:#e8f5e9,stroke:#2e7d32,stroke-width:3px
-
-**Current 3-2-1 Status**: 2/3 (Original data + Encrypted local repository)  
-**Planned improvement**: Add external USB drive for full compliance.
+**3-2-1 Backup Rule Status**: Currently **2/3** (Original data + Encrypted local repository)  
+**Next planned step**: Add an external USB drive for full compliance.
 
 ---
 
 ## Repository Structure
 
-| Folder / File                        | Purpose |
-|--------------------------------------|-------|
-| `README.md`                          | Main project documentation |
-| `docs/`                              | Professional documentation (Risk Assessment, Backup Policy, DR Plan, etc.) |
-| `scripts/backup-daily.sh`            | Main encrypted backup script |
-| `scripts/health-check.sh`            | Repository integrity and health verification |
-| `scripts/restore-test.sh`            | Restore procedure and testing guide |
-| `scripts/generate-report.py`         | Generates clean HTML reports for recruiters |
-| `config/`                            | Configuration files (paths, exclusions, settings) |
-| `reports/`                           | Generated professional reports |
-| `logs/`                              | Execution logs |
-| `SecureBackups/restic-repo/`         | Encrypted backup repository |
+| Folder/File                        | Purpose |
+|------------------------------------|---------|
+| `README.md`                        | Main project documentation |
+| `docs/`                            | Professional documentation (Risk, Policy, DR Plan...) |
+| `scripts/backup-daily.sh`          | Main encrypted backup script |
+| `scripts/health-check.sh`          | Repository integrity verification |
+| `scripts/restore-test.sh`          | Restore procedure guide |
+| `scripts/generate-report.py`       | Generates clean HTML reports |
+| `config/`                          | Configuration files |
+| `reports/`                         | Generated reports |
+| `SecureBackups/restic-repo/`       | Encrypted backup repository |
 
 ---
 
@@ -94,7 +63,7 @@ flowchart TD
 - Client-side AES-256 encryption
 - Strong randomly generated password with strict permissions (600)
 - Repository folder protected with 700 permissions
-- Exclusion lists for temporary/cache files
+- Exclusion lists for temporary and cache files
 - 100% local solution (no external connections)
 - Manual execution only (full user control)
 
@@ -105,22 +74,14 @@ flowchart TD
 ```bash
 cd ~/secure-backup-and-disaster-recovery-platform
 
-# 1. Run a backup
-./scripts/backup-daily.sh
-
-# 2. Check backup health
-./scripts/health-check.sh
-
-# 3. Generate professional HTML report
-python3 scripts/generate-report.py
-
-# 4. Review restore procedure
-./scripts/restore-test.sh
-
+./scripts/backup-daily.sh              # Run backup
+./scripts/health-check.sh              # Check health
+python3 scripts/generate-report.py     # Generate HTML report
+./scripts/restore-test.sh              # Review restore procedure
 Skills Demonstrated – AIS RNCP Alignment
 
-Secure Linux system administration and hardening
-Design and implementation of backup strategies
+Secure Linux system administration
+Backup strategy design and implementation
 Data encryption and protection
 Risk analysis and mitigation
 Business continuity and disaster recovery planning
@@ -128,7 +89,9 @@ Professional technical documentation
 
 
 Conclusion and Professional Reflection
-This project allowed me to bridge the gap between theoretical learning and practical infrastructure skills. It proves my ability to learn quickly, design secure solutions, and deliver professional work.
-I am actively looking for an alternance in the Paris region starting September/October 2026.
-
-
+This project allowed me to transform theoretical knowledge into a concrete, functional and well-documented infrastructure solution.
+It proves my ability to learn quickly and deliver professional work. I am actively looking for an alternance in the Paris region starting September/October 2026.
+Author: Sonny
+Reconversion Professionnelle – Cybersecurity & Systems Administration
+Availability: September/October 2026 – Paris Region
+Date: May 2026

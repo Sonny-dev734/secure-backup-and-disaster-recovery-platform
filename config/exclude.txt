@@ -1,0 +1,6 @@
+**/.cache/
+**/tmp/
+**/__pycache__/
+**/node_modules/
+**/.git/objects/
+**/.mozilla/firefox/*/cache/

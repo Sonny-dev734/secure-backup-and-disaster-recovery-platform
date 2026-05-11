@@ -1,0 +1,8 @@
+# Sensitive files
+*.env
+restic-password*
+*.log
+reports/*
+logs/*
+.DS_Store
+__pycache__/

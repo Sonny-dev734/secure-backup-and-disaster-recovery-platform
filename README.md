@@ -41,29 +41,31 @@ The solution is 100% local, ethical, manual, and optimized for low-resource mach
 ---
 
 ## Architecture
-+===============================+
-|      Linux Workstation        |
-|        (Linux Mint XFCE)      |
-+===============+===============+
-|
-| Critical Data
-| (Documents, Projects, .ssh, .gnupg...)
-v
-+---------------+---------------+
-|             Restic              |
-|        Backup Engine            |
-+---------------+---------------+
-|
-+---------------v---------------+
-|       AES-256 Encryption        |
-|         (Client-side)           |
-+---------------+---------------+
-|
-+---------------v---------------+
-|     Local Encrypted Repository   |
-|   ~/SecureBackups/restic-repo    |
-+===============================+
 
+```mermaid
+flowchart TD
+    subgraph Workstation ["💻 Linux Workstation"]
+        A[Linux Mint XFCE<br/>4GB RAM]
+    end
+
+    subgraph Data ["📁 Critical Data"]
+        B[Documents<br/>Projects<br/>.ssh<br/>.gnupg<br/>.config]
+    end
+
+    subgraph Backup ["🔐 Secure Backup Solution"]
+        C[Restic Backup Engine]
+        D[AES-256 Encryption<br/>Client-side]
+        E[Local Encrypted Repository<br/>~/SecureBackups/restic-repo]
+    end
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+
+    style A fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style B fill:#fff3e0,stroke:#ef6c00
+    style E fill:#e8f5e9,stroke:#2e7d32,stroke-width:3px
 
 **Current 3-2-1 Status**: 2/3 (Original data + Encrypted local repository)  
 **Planned improvement**: Add external USB drive for full compliance.

@@ -9,34 +9,34 @@
 
 ## Executive Summary
 
-This project consists of the complete design, implementation, testing and professional documentation of a secure, local backup and disaster recovery solution using the open-source tool Restic.
+This project implements a complete, secure, local backup and disaster recovery solution using the open-source tool Restic. 
 
-Developed during my professional reconversion, this solution demonstrates the technical, methodological and organisational skills expected from an Administrateur d’Infrastructures Sécurisées. It covers secure data management, strong encryption, risk analysis, business continuity planning, disaster recovery procedures, and high-quality technical documentation.
+Developed during my professional reconversion, it demonstrates real-world competencies required for the role of **Administrateur d’Infrastructures Sécurisées**: secure data management, strong encryption, risk analysis, business continuity planning, disaster recovery procedures, and high-quality technical documentation.
 
-The entire solution runs 100% locally on the machine. No cloud service, no external server and no automation are used. This deliberate choice ensures full control, maximum security during the learning phase, and allows for a deep understanding of every component.
+The solution is 100% local, ethical, manual, and optimized for low-resource machines while following modern industry best practices.
 
 ---
 
 ## Project Objectives
 
 - Design and implement a reliable and secure backup system
-- Apply industry-standard encryption (AES-256 client-side)
-- Create clear, structured and professional technical documentation
+- Apply strong client-side encryption (AES-256)
+- Create clear, professional and auditable documentation
 - Perform risk analysis and define mitigation measures
-- Document detailed disaster recovery procedures
-- Demonstrate practical application of the CIA triad (Confidentiality, Integrity, Availability)
-- Produce a high-quality portfolio project ready for alternance applications and recruiters
+- Document disaster recovery (restore) procedures
+- Demonstrate practical understanding of the CIA triad (Confidentiality, Integrity, Availability)
+- Build a standout portfolio project for alternance applications in Paris
 
 ---
 
-## Key Concepts Explained
+## Key Concepts
 
-- **Backup**: The process of creating copies of important data to protect against loss.
-- **Disaster Recovery (DR)**: The set of policies, tools and procedures that enable the restoration of systems and data after an incident.
-- **Restic**: Modern open-source backup software chosen for its built-in AES-256 encryption, deduplication, compression and efficiency.
-- **AES-256**: Advanced Encryption Standard with 256-bit keys — one of the strongest encryption algorithms used professionally.
-- **3-2-1 Backup Rule**: Best practice recommending 3 copies of data, on 2 different media types, with 1 copy off-site.
-- **Snapshot**: Point-in-time copy of the data.
+- **Backup**: Creation of copies of critical data to ensure recoverability.
+- **Disaster Recovery (DR)**: Policies, tools and procedures to restore systems and data after an incident.
+- **Restic**: Modern, secure backup tool with built-in AES-256 encryption, deduplication, compression and snapshots.
+- **AES-256**: Industry-standard strong encryption algorithm (256-bit keys).
+- **3-2-1 Backup Rule**: 3 copies of data, on 2 different media types, with 1 copy off-site.
+- **Snapshot**: Point-in-time version of the data for safe restoration.
 
 ---
 
@@ -47,7 +47,7 @@ The entire solution runs 100% locally on the machine. No cloud service, no exter
 +===============+===============+
 |
 | Critical Data
-| (Documents, Projects, .ssh...)
+| (Documents, Projects, .ssh, .gnupg...)
 v
 +---------------+---------------+
 |             Restic              |
@@ -63,51 +63,70 @@ v
 |     Local Encrypted Repository   |
 |   ~/SecureBackups/restic-repo    |
 +===============================+
-text---
+
+
+**Current 3-2-1 Status**: 2/3 (Original data + Encrypted local repository)  
+**Planned improvement**: Add external USB drive for full compliance.
+
+---
 
 ## Repository Structure
-secure-backup-and-disaster-recovery-platform/
-├── README.md
-├── docs/
-├── scripts/
-├── config/
-├── reports/
-├── logs/
-└── SecureBackups/restic-repo/
-text---
+
+| Folder / File                        | Purpose |
+|--------------------------------------|-------|
+| `README.md`                          | Main project documentation |
+| `docs/`                              | Professional documentation (Risk Assessment, Backup Policy, DR Plan, etc.) |
+| `scripts/backup-daily.sh`            | Main encrypted backup script |
+| `scripts/health-check.sh`            | Repository integrity and health verification |
+| `scripts/restore-test.sh`            | Restore procedure and testing guide |
+| `scripts/generate-report.py`         | Generates clean HTML reports for recruiters |
+| `config/`                            | Configuration files (paths, exclusions, settings) |
+| `reports/`                           | Generated professional reports |
+| `logs/`                              | Execution logs |
+| `SecureBackups/restic-repo/`         | Encrypted backup repository |
+
+---
 
 ## Security Measures
 
 - Client-side AES-256 encryption
-- Strong random password with strict permissions
+- Strong randomly generated password with strict permissions (600)
 - Repository folder protected with 700 permissions
-- Exclusion lists for temporary files
-- 100% local solution
+- Exclusion lists for temporary/cache files
+- 100% local solution (no external connections)
+- Manual execution only (full user control)
 
 ---
 
-## Usage Instructions (Manual Only)
+## How to Use This Project
 
 ```bash
 cd ~/secure-backup-and-disaster-recovery-platform
 
+# 1. Run a backup
 ./scripts/backup-daily.sh
+
+# 2. Check backup health
 ./scripts/health-check.sh
+
+# 3. Generate professional HTML report
 python3 scripts/generate-report.py
+
+# 4. Review restore procedure
 ./scripts/restore-test.sh
 
-Skills Demonstrated – RNCP AIS Alignment
+Skills Demonstrated – AIS RNCP Alignment
 
-Secure Linux administration
-Backup strategy design
-Data encryption
-Risk analysis and documentation
-Business continuity planning
+Secure Linux system administration and hardening
+Design and implementation of backup strategies
+Data encryption and protection
+Risk analysis and mitigation
+Business continuity and disaster recovery planning
+Professional technical documentation
 
 
 Conclusion and Professional Reflection
-This project allowed me to apply theoretical knowledge from Cisco NetAcad and ANSSI MOOC into a real, functional solution.
-It strengthened my understanding of the responsibilities of an Administrateur d’Infrastructures Sécurisées. I am actively looking for an alternance in Paris starting September/October 2026.
-Author: Sonny
-Reconversion Professionnelle – Cybersecurity & Systems Administration
-Date: May 2026
+This project allowed me to bridge the gap between theoretical learning and practical infrastructure skills. It proves my ability to learn quickly, design secure solutions, and deliver professional work.
+I am actively looking for an alternance in the Paris region starting September/October 2026.
+
+
